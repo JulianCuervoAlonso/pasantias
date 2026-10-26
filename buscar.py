@@ -26,9 +26,16 @@ HEADERS = {
 
 
 def pedir(url):
-    r = requests.get(url, headers=HEADERS, timeout=25)
-    r.raise_for_status()
-    return r.text
+    """Pide la página; si el sitio dice 'demasiadas consultas' (429), espera y reintenta."""
+    esperas = (20, 45, 90)
+    for intento in range(len(esperas) + 1):
+        r = requests.get(url, headers=HEADERS, timeout=25)
+        if r.status_code == 429 and intento < len(esperas):
+            print(f"     429 (límite del sitio), espero {esperas[intento]}s y reintento...")
+            time.sleep(esperas[intento])
+            continue
+        r.raise_for_status()
+        return r.text
 
 
 def limpiar(txt):
@@ -43,7 +50,14 @@ def buscar_linkedin(consulta, ubicacion):
         url = ("https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?"
                + urllib.parse.urlencode({"keywords": consulta, "location": ubicacion,
                                          "f_TPR": "r1209600", "start": inicio}))
-        soup = BeautifulSoup(pedir(url), "html.parser")
+        try:
+            html = pedir(url)
+        except Exception as e:
+            if ofertas:  # si ya trajimos páginas anteriores, las conservamos
+                print(f"     LinkedIn cortó en start={inicio} ({e}); me quedo con lo ya traído")
+                break
+            raise
+        soup = BeautifulSoup(html, "html.parser")
         tarjetas = soup.select("li")
         if not tarjetas:
             break
@@ -61,7 +75,7 @@ def buscar_linkedin(consulta, ubicacion):
                 "url": a["href"].split("?")[0],
                 "fuente": "LinkedIn",
             })
-        time.sleep(2)
+        time.sleep(5)
     return ofertas
 
 
@@ -103,7 +117,7 @@ def recolectar():
         except Exception as e:  # un portal caído no frena a los demás
             print(f"FALLÓ {nombre}: {e}")
             avisos.append(nombre)
-        time.sleep(1.5)
+        time.sleep(4)
     return todas, avisos
 
 
