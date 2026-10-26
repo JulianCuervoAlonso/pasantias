@@ -1,0 +1,16 @@
+{
+  "pais_computrabajo": "ar",
+  "ubicaciones_linkedin": ["Argentina"],
+  "busquedas": [
+    "pasante ingeniería mecánica",
+    "pasantía ingeniería mecánica",
+    "practicante ingeniería mecánica",
+    "trainee ingeniería mecánica",
+    "intern mechanical engineering",
+    "becario ingeniería mecánica",
+    "jóvenes profesionales ingeniería"
+  ],
+  "palabras_en_titulo": ["pasant", "practic", "intern", "trainee", "becari", "jóven", "joven", "junior", "jr", "estudiante"],
+  "dias_a_conservar": 45,
+  "dias_nuevo": 1
+}
