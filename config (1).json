@@ -1,0 +1,39 @@
+{
+  "pais_computrabajo": "ar",
+  "ubicaciones_linkedin": ["Argentina"],
+  "jooble_ubicacion": "Buenos Aires",
+
+  "busquedas": [
+    "pasante ingeniería mecánica",
+    "pasantía ingeniería mecánica",
+    "practicante ingeniería mecánica",
+    "trainee ingeniería mecánica",
+    "intern mechanical engineering",
+    "becario ingeniería mecánica",
+    "jóvenes profesionales ingeniería"
+  ],
+
+  "empresas": [
+    "Pirelli", "YPF", "Arcor", "WKPoint",
+    "Siemens", "Techint", "Tenaris", "Ternium", "Toyota", "Mercedes-Benz",
+    "Volkswagen", "Ford", "Renault", "Stellantis", "Scania", "Chevron",
+    "Pan American Energy", "Cargill", "Mondelez", "Aluar", "Whirlpool",
+    "Dow", "Loma Negra", "Bridgestone"
+  ],
+  "terminos_empresa": ["pasante"],
+
+  "paginas_navegador": [
+    {"nombre": "Bumeran · pasantías", "url": "https://www.bumeran.com.ar/empleos-pasantia.html", "tipo": "portal", "fuente": "Bumeran"},
+    {"nombre": "Bumeran · ingenierías", "url": "https://www.bumeran.com.ar/empleos-area-ingenierias.html", "tipo": "portal", "fuente": "Bumeran"},
+    {"nombre": "Bumeran · pasante ing. mecánica", "url": "https://www.bumeran.com.ar/empleos-busqueda-pasante-ingenieria-mecanica.html", "tipo": "portal", "fuente": "Bumeran"},
+    {"nombre": "Bumeran · trainee", "url": "https://www.bumeran.com.ar/empleos-busqueda-trainee.html", "tipo": "portal", "fuente": "Bumeran"},
+    {"nombre": "ZonaJobs · pasantías", "url": "https://www.zonajobs.com.ar/empleos-pasantia.html", "tipo": "portal", "fuente": "ZonaJobs"},
+    {"nombre": "ZonaJobs · pasante ing. mecánica", "url": "https://www.zonajobs.com.ar/empleos-busqueda-pasante-ingenieria-mecanica.html", "tipo": "portal", "fuente": "ZonaJobs"}
+  ],
+
+  "palabras_en_titulo": ["pasant", "practic", "práctic", "intern", "internship", "trainee", "becari", "jóven", "joven", "junior", "jr", "estudiante"],
+  "palabras_excluir": ["software", "developer", "desarrollador", "civil", "contab", "administrativ", "vendedor", "ventas", "marketing", "abogad", "legal", "recursos humanos", "analytics", "datos"],
+  "lugares_permitidos": ["capital federal", "caba", "ciudad autónoma", "ciudad autonoma", "buenos aires", "gba", "gran buenos aires", "amba"],
+  "dias_a_conservar": 45,
+  "dias_nuevo": 1
+}
