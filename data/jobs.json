@@ -20,7 +20,7 @@
  "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-dibujante-proyectista-estudiante-ingenieria-estudiante-ingenieria-en-ramos-mejia-C5437F9560B1B5EA61373E686DCF3405": {
   "titulo": "Dibujante Proyectista Estudiante Ingeniería",
   "empresa": "Silogic",
-  "lugar": "3,9",
+  "lugar": "Ramos Mejía, Buenos Aires-GBA",
   "url": "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-dibujante-proyectista-estudiante-ingenieria-estudiante-ingenieria-en-ramos-mejia-C5437F9560B1B5EA61373E686DCF3405",
   "fuente": "Computrabajo",
   "primera_vez": "2026-10-26",
@@ -74,7 +74,7 @@
  "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-ingeniero-o-estudiante-arquitecto-o-maestro-mayor-de-obra-ezeiza-en-ezeiza-414A2BDD90BAE1F961373E686DCF3405": {
   "titulo": "Ingeniero o estudiante/ Arquitecto o Maestro mayor de obra",
   "empresa": "Grupo Servicemen",
-  "lugar": "4,0",
+  "lugar": "Ezeiza, Buenos Aires-GBA",
   "url": "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-ingeniero-o-estudiante-arquitecto-o-maestro-mayor-de-obra-ezeiza-en-ezeiza-414A2BDD90BAE1F961373E686DCF3405",
   "fuente": "Computrabajo",
   "primera_vez": "2026-10-26",
@@ -83,7 +83,7 @@
  "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-1360cc-ingeniero-electrico-junior-graduado-empresa-de-soluciones-electricas-zona-munro-en-belgrano-BB3B7AA7349DF06261373E686DCF3405": {
   "titulo": "1360CC / Ingeniero Electrico Junior Graduado / Empresa de Soluciones Electricas / Zona Munro",
   "empresa": "Cona Consultores SRL",
-  "lugar": "4,2",
+  "lugar": "Belgrano, Capital Federal",
   "url": "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-1360cc-ingeniero-electrico-junior-graduado-empresa-de-soluciones-electricas-zona-munro-en-belgrano-BB3B7AA7349DF06261373E686DCF3405",
   "fuente": "Computrabajo",
   "primera_vez": "2026-10-26",
@@ -110,7 +110,7 @@
  "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-ingenieroa-jr-de-gestion-de-activos-y-planificacion-de-inversiones-en-retiro-FBD4CA91B6C5145B61373E686DCF3405": {
   "titulo": "Ingeniero/a Jr. de Gestión de Activos y Planificación de Inversiones",
   "empresa": "ManpowerGroup",
-  "lugar": "4,4",
+  "lugar": "Retiro, Capital Federal",
   "url": "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-ingenieroa-jr-de-gestion-de-activos-y-planificacion-de-inversiones-en-retiro-FBD4CA91B6C5145B61373E686DCF3405",
   "fuente": "Computrabajo",
   "primera_vez": "2026-10-26",
@@ -119,7 +119,7 @@
  "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-1360cc-ingeniero-junior-empresa-soluciones-electricas-zona-munro-en-munro-D0767ACCA3723FC061373E686DCF3405": {
   "titulo": "1360CC / Ingeniero Junior / Empresa Soluciones Electricas / Zona Munro",
   "empresa": "Cona Consultores SRL",
-  "lugar": "4,2",
+  "lugar": "Munro, Buenos Aires",
   "url": "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-1360cc-ingeniero-junior-empresa-soluciones-electricas-zona-munro-en-munro-D0767ACCA3723FC061373E686DCF3405",
   "fuente": "Computrabajo",
   "primera_vez": "2026-10-26",
@@ -335,7 +335,7 @@
  "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-jovenes-profesionales-de-ingenieria-en-villa-soldati-4939F42CD29EAB4761373E686DCF3405": {
   "titulo": "Jóvenes Profesionales de Ingeniería",
   "empresa": "Grupo Gestión",
-  "lugar": "4,1",
+  "lugar": "Villa Soldati, Capital Federal",
   "url": "https://ar.computrabajo.com/ofertas-de-trabajo/oferta-de-trabajo-de-jovenes-profesionales-de-ingenieria-en-villa-soldati-4939F42CD29EAB4761373E686DCF3405",
   "fuente": "Computrabajo",
   "primera_vez": "2026-10-26",
@@ -499,6 +499,87 @@
   "empresa": "Rodina",
   "lugar": "Benavídez, Provincia de Buenos Aires, Argentina",
   "url": "https://ar.linkedin.com/jobs/view/dise%C3%B1ador-industrial-jr-ventas-at-rodina-4481470389",
+  "fuente": "LinkedIn",
+  "primera_vez": "2026-10-26",
+  "ultima_vez": "2026-10-26"
+ },
+ "https://ar.linkedin.com/jobs/view/pasante-de-ehs-at-bat-4470090452": {
+  "titulo": "Pasante de EHS",
+  "empresa": "BAT",
+  "lugar": "Pilar, Provincia de Buenos Aires, Argentina",
+  "url": "https://ar.linkedin.com/jobs/view/pasante-de-ehs-at-bat-4470090452",
+  "fuente": "LinkedIn",
+  "primera_vez": "2026-10-26",
+  "ultima_vez": "2026-10-26"
+ },
+ "https://ar.linkedin.com/jobs/view/intern-at-abb-4477878767": {
+  "titulo": "Intern",
+  "empresa": "ABB",
+  "lugar": "Buenos Aires, Provincia de Buenos Aires, Argentina",
+  "url": "https://ar.linkedin.com/jobs/view/intern-at-abb-4477878767",
+  "fuente": "LinkedIn",
+  "primera_vez": "2026-10-26",
+  "ultima_vez": "2026-10-26"
+ },
+ "https://ar.linkedin.com/jobs/view/pasante-de-anal%C3%ADtica-de-datos-y-transformaci%C3%B3n-digital-at-louis-dreyfus-company-4478951150": {
+  "titulo": "Pasante de Analítica de Datos y Transformación Digital",
+  "empresa": "Louis Dreyfus Company",
+  "lugar": "Buenos Aires, Provincia de Buenos Aires, Argentina",
+  "url": "https://ar.linkedin.com/jobs/view/pasante-de-anal%C3%ADtica-de-datos-y-transformaci%C3%B3n-digital-at-louis-dreyfus-company-4478951150",
+  "fuente": "LinkedIn",
+  "primera_vez": "2026-10-26",
+  "ultima_vez": "2026-10-26"
+ },
+ "https://ar.linkedin.com/jobs/view/ingeniero-a-de-procesos-junior-ssr-sector-oil-gas-at-isa-ingenier%C3%ADa-seguridad-ambiente-s-a-4481448477": {
+  "titulo": "Ingeniero/a de Procesos - Junior/SSr - sector Oil&Gas",
+  "empresa": "ISA Ingeniería, Seguridad & Ambiente S.A.",
+  "lugar": "La Plata, Provincia de Buenos Aires, Argentina",
+  "url": "https://ar.linkedin.com/jobs/view/ingeniero-a-de-procesos-junior-ssr-sector-oil-gas-at-isa-ingenier%C3%ADa-seguridad-ambiente-s-a-4481448477",
+  "fuente": "LinkedIn",
+  "primera_vez": "2026-10-26",
+  "ultima_vez": "2026-10-26"
+ },
+ "https://ar.linkedin.com/jobs/view/pasante-de-log%C3%ADstica-centro-de-distribuci%C3%B3n-at-scania-argentina-4464678152": {
+  "titulo": "Pasante de Logística - Centro de distribución",
+  "empresa": "Scania Argentina",
+  "lugar": "Buenos Aires, Provincia de Buenos Aires, Argentina",
+  "url": "https://ar.linkedin.com/jobs/view/pasante-de-log%C3%ADstica-centro-de-distribuci%C3%B3n-at-scania-argentina-4464678152",
+  "fuente": "LinkedIn",
+  "primera_vez": "2026-10-26",
+  "ultima_vez": "2026-10-26"
+ },
+ "https://ar.linkedin.com/jobs/view/qa-analyst-jr-12-a-21-hs-at-mrm-4381162786": {
+  "titulo": "QA Analyst Jr - 12 a 21 hs",
+  "empresa": "MRM",
+  "lugar": "Buenos Aires, Provincia de Buenos Aires, Argentina",
+  "url": "https://ar.linkedin.com/jobs/view/qa-analyst-jr-12-a-21-hs-at-mrm-4381162786",
+  "fuente": "LinkedIn",
+  "primera_vez": "2026-10-26",
+  "ultima_vez": "2026-10-26"
+ },
+ "https://ar.linkedin.com/jobs/view/qa-analyst-jr-13-a-22-hs-at-mrm-4465309976": {
+  "titulo": "QA Analyst Jr - 13 a 22 hs",
+  "empresa": "MRM",
+  "lugar": "Buenos Aires, Provincia de Buenos Aires, Argentina",
+  "url": "https://ar.linkedin.com/jobs/view/qa-analyst-jr-13-a-22-hs-at-mrm-4465309976",
+  "fuente": "LinkedIn",
+  "primera_vez": "2026-10-26",
+  "ultima_vez": "2026-10-26"
+ },
+ "https://ar.linkedin.com/jobs/view/implementation-engineer-jr-ssr-at-escalate-ops-4481349543": {
+  "titulo": "Implementation Engineer (Jr & Ssr)",
+  "empresa": "Escalate Ops",
+  "lugar": "Buenos Aires, Provincia de Buenos Aires, Argentina",
+  "url": "https://ar.linkedin.com/jobs/view/implementation-engineer-jr-ssr-at-escalate-ops-4481349543",
+  "fuente": "LinkedIn",
+  "primera_vez": "2026-10-26",
+  "ultima_vez": "2026-10-26"
+ },
+ "https://ar.linkedin.com/jobs/view/qa-automation-mainframe-jr-at-tata-consultancy-services-4482141199": {
+  "titulo": "QA AUTOMATION/ MAINFRAME JR",
+  "empresa": "Tata Consultancy Services",
+  "lugar": "Buenos Aires y alrededores",
+  "url": "https://ar.linkedin.com/jobs/view/qa-automation-mainframe-jr-at-tata-consultancy-services-4482141199",
   "fuente": "LinkedIn",
   "primera_vez": "2026-10-26",
   "ultima_vez": "2026-10-26"
