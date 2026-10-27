@@ -2,6 +2,7 @@
   "pais_computrabajo": "ar",
   "ubicaciones_linkedin": ["Argentina"],
   "jooble_ubicacion": "Buenos Aires",
+  "busquedas_jooble": ["pasante", "pasantía ingeniería", "trainee ingeniería", "pasante mecánico", "junior ingeniería mecánica", "mechanical engineering intern"],
 
   "busquedas": [
     "pasante ingeniería mecánica",
@@ -23,15 +24,17 @@
   "terminos_empresa": ["pasante"],
 
   "paginas_navegador": [
-    {"nombre": "Bumeran · pasantías", "url": "https://www.bumeran.com.ar/empleos-pasantia.html", "tipo": "portal", "fuente": "Bumeran"},
+    {"nombre": "Bumeran · pasantías", "pasantia": true, "url": "https://www.bumeran.com.ar/empleos-pasantia.html", "tipo": "portal", "fuente": "Bumeran"},
     {"nombre": "Bumeran · ingenierías", "url": "https://www.bumeran.com.ar/empleos-area-ingenierias.html", "tipo": "portal", "fuente": "Bumeran"},
-    {"nombre": "Bumeran · pasante ing. mecánica", "url": "https://www.bumeran.com.ar/empleos-busqueda-pasante-ingenieria-mecanica.html", "tipo": "portal", "fuente": "Bumeran"},
-    {"nombre": "Bumeran · trainee", "url": "https://www.bumeran.com.ar/empleos-busqueda-trainee.html", "tipo": "portal", "fuente": "Bumeran"},
-    {"nombre": "ZonaJobs · pasantías", "url": "https://www.zonajobs.com.ar/empleos-pasantia.html", "tipo": "portal", "fuente": "ZonaJobs"},
-    {"nombre": "ZonaJobs · pasante ing. mecánica", "url": "https://www.zonajobs.com.ar/empleos-busqueda-pasante-ingenieria-mecanica.html", "tipo": "portal", "fuente": "ZonaJobs"}
+    {"nombre": "Bumeran · trainee", "pasantia": true, "url": "https://www.bumeran.com.ar/empleos-busqueda-trainee.html", "tipo": "portal", "fuente": "Bumeran"},
+    {"nombre": "Bumeran · pasante", "pasantia": true, "url": "https://www.bumeran.com.ar/empleos-busqueda-pasante.html", "tipo": "portal", "fuente": "Bumeran"},
+    {"nombre": "ZonaJobs · pasantías", "pasantia": true, "url": "https://www.zonajobs.com.ar/empleos-pasantia.html", "tipo": "portal", "fuente": "ZonaJobs"},
+    {"nombre": "ZonaJobs · ingenierías", "url": "https://www.zonajobs.com.ar/empleos-area-ingenierias.html", "tipo": "portal", "fuente": "ZonaJobs"}
   ],
 
-  "palabras_en_titulo": ["pasant", "practic", "práctic", "intern", "internship", "trainee", "becari", "jóven", "joven", "junior", "jr", "estudiante"],
+  "palabras_en_titulo": ["pasant", "practic", "práctic", "intern", "internship", "trainee", "becari"],
+  "palabras_nivel": ["jóven", "joven", "junior", "jr", "estudiante"],
+  "palabras_area": ["ingenier", "mecánic", "mecanic", "industrial", "mantenimiento", "producción", "produccion", "planta", "calidad", "proceso", "logíst", "logist", "operacion", "manufactur", "proyectista", "supply", "seguridad e higiene", "ehs", "energ", "automatiz", "automación", "automacion", "electromec", "electromecánic", "técnico", "tecnico", "engineer", "mechanic", "plant", "maintenance", "production", "quality", "process", "manufacturing", "operations", "logistics"],
   "palabras_excluir": ["software", "developer", "desarrollador", "civil", "contab", "administrativ", "vendedor", "ventas", "marketing", "abogad", "legal", "recursos humanos", "analytics", "datos"],
   "lugares_permitidos": ["capital federal", "caba", "ciudad autónoma", "ciudad autonoma", "buenos aires", "gba", "gran buenos aires", "amba"],
   "dias_a_conservar": 45,

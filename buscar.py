@@ -129,12 +129,21 @@ def buscar_computrabajo(consulta):
 def buscar_jooble(consulta):
     """API oficial de Jooble. Necesita la clave gratuita guardada como secreto JOOBLE_KEY."""
     clave = os.environ.get("JOOBLE_KEY", "").strip()
-    r = requests.post(f"https://jooble.org/api/{clave}", timeout=25,
-                      json={"keywords": consulta,
-                            "location": CONFIG.get("jooble_ubicacion", "Buenos Aires")})
-    r.raise_for_status()
+    datos = {}
+    # si con la ubicación configurada no hay nada, prueba variantes (el filtro de zona se aplica después)
+    for ubicacion in dict.fromkeys([CONFIG.get("jooble_ubicacion", "Buenos Aires"),
+                                    "Buenos Aires, Argentina", "Argentina"]):
+        r = requests.post(f"https://jooble.org/api/{clave}", timeout=25,
+                          json={"keywords": consulta, "location": ubicacion})
+        r.raise_for_status()
+        datos = r.json()
+        if datos.get("jobs"):
+            break
+        print(f"     Jooble sin avisos para '{consulta}' en '{ubicacion}' "
+              f"(totalCount={datos.get('totalCount')}, respuesta: {str(datos)[:140]})")
+        time.sleep(1)
     ofertas = []
-    for j in r.json().get("jobs", []):
+    for j in datos.get("jobs", []):
         if not j.get("link"):
             continue
         ofertas.append({
@@ -148,6 +157,49 @@ def buscar_jooble(consulta):
 
 
 # ---------- Páginas que necesitan navegador (Bumeran, ZonaJobs, empresas) ----------
+# Ciudades y provincias del interior: si la tarjeta del aviso menciona una, se marca como tal y se descarta.
+INTERIOR = [
+    "córdoba", "cordoba", "santa fe", "rosario", "mendoza", "tucumán", "tucuman", "salta", "neuquén",
+    "neuquen", "chubut", "santa cruz", "entre ríos", "entre rios", "misiones", "corrientes", "chaco",
+    "jujuy", "san juan", "san luis", "la pampa", "río negro", "rio negro", "tierra del fuego",
+    "catamarca", "la rioja", "santiago del estero", "formosa", "mar del plata", "bahía blanca",
+    "bahia blanca", "la plata", "campana", "zárate", "zarate", "pergamino", "olavarría", "olavarria",
+]
+
+
+def contexto_tarjeta(a):
+    """Texto de la tarjeta del aviso: sube desde el enlace hasta el contenedor más grande
+    que todavía tenga un solo aviso adentro."""
+    nodo, txt = a, limpiar(a.get_text(" "))
+    for _ in range(4):
+        padre = nodo.parent
+        if padre is None:
+            break
+        hrefs = {x["href"].split("?")[0] for x in padre.select("a[href]")
+                 if re.search(r"/empleos/.+-\d{6,}\.html$", x["href"].split("?")[0])}
+        if len(hrefs) > 1:
+            break
+        nodo = padre
+        txt = limpiar(nodo.get_text(" "))
+    return txt[:700]
+
+
+def adivinar_lugar(texto):
+    """Busca en el texto de la tarjeta una zona del interior o una zona permitida. '' si no hay."""
+    t = texto.lower()
+
+    def hay(p):
+        return re.search(rf"(?<!\w){re.escape(p)}(?!\w)", t) is not None
+
+    for p in INTERIOR:
+        if hay(p):
+            return p.title()
+    for p in CONFIG.get("lugares_permitidos", []):
+        if hay(p):
+            return p.upper() if len(p) <= 4 else p.title()
+    return ""
+
+
 def extraer_enlaces(html, base_url, tipo, fuente, empresa=""):
     """Saca ofertas de una página ya cargada.
     tipo 'portal'   -> enlaces con forma /empleos/<texto>-<número>.html (Bumeran, ZonaJobs).
@@ -173,9 +225,14 @@ def extraer_enlaces(html, base_url, tipo, fuente, empresa=""):
         if not titulo:
             continue
         url = urllib.parse.urljoin(base_url, href)
-        if url not in mejores or len(titulo) > len(mejores[url]["titulo"]):
-            mejores[url] = {"titulo": titulo, "empresa": empresa, "lugar": "",
+        lugar = adivinar_lugar(contexto_tarjeta(a)) if tipo == "portal" else ""
+        previo = mejores.get(url)
+        if previo is None or len(titulo) > len(previo["titulo"]):
+            mejores[url] = {"titulo": titulo, "empresa": empresa,
+                            "lugar": lugar or (previo["lugar"] if previo else ""),
                             "url": url, "fuente": fuente}
+        elif lugar and not previo["lugar"]:
+            previo["lugar"] = lugar
     return list(mejores.values())
 
 
@@ -205,6 +262,9 @@ def buscar_con_navegador(paginas):
                                           pag.get("fuente", pag["nombre"]), pag.get("empresa", ""))
                     if not res:
                         raise RuntimeError("no encontré avisos (¿bloqueo o cambió la página?)")
+                    if pag.get("pasantia"):  # la propia página ya es de pasantías/trainee
+                        for o in res:
+                            o["pasantia"] = True
                     print(f"OK   {nombre}: {len(res)}")
                     ofertas += res
                 except Exception as e:
@@ -292,20 +352,36 @@ def lugar_ok(o):
 PALABRAS_COMPLETAS = {"intern", "jr"}  # solo cuentan como palabra entera ("intern" ≠ "internacional")
 
 
+def _coincide(p, t):
+    if p in PALABRAS_COMPLETAS:
+        return re.search(rf"\b{re.escape(p)}s?\b", t) is not None
+    return p in t
+
+
 def tiene_palabra_clave(titulo):
+    """Palabras fuertes (pasante, intern, trainee...) alcanzan solas. Las de nivel (junior, jr,
+    estudiante...) valen solo si el título además nombra un área técnica (ingeniería, planta...)."""
     t = titulo.lower()
-    for p in CONFIG["palabras_en_titulo"]:
-        if p in PALABRAS_COMPLETAS:
-            if re.search(rf"\b{re.escape(p)}s?\b", t):
-                return True
-        elif p in t:
-            return True
+    if any(_coincide(p, t) for p in CONFIG["palabras_en_titulo"]):
+        return True
+    if any(_coincide(p, t) for p in CONFIG.get("palabras_nivel", [])):
+        return any(a in t for a in CONFIG.get("palabras_area", []))
     return False
+
+
+def tiene_area(titulo):
+    t = titulo.lower()
+    return any(a in t for a in CONFIG.get("palabras_area", []))
 
 
 def es_relevante(o):
     t = o["titulo"].lower()
-    if not tiene_palabra_clave(o["titulo"]):
+    if o.get("pasantia"):
+        # viene de una página de pasantías: el título no tiene que decir "pasante",
+        # pero sí nombrar un área técnica (o una palabra clave fuerte)
+        if not (tiene_palabra_clave(o["titulo"]) or tiene_area(o["titulo"])):
+            return False
+    elif not tiene_palabra_clave(o["titulo"]):
         return False
     if any(p in t for p in CONFIG.get("palabras_excluir", [])):
         return False
@@ -414,6 +490,13 @@ def main():
     todas, avisos = recolectar()
     relevantes = [o for o in todas if es_relevante(o)]
     print(f"Total {len(todas)} · relevantes {len(relevantes)}")
+    # diagnóstico por fuente: cuántos avisos trajo, cuántos pasaron y ejemplos de los descartados
+    for fuente in sorted({o["fuente"] for o in todas}):
+        de_fuente = [o for o in todas if o["fuente"] == fuente]
+        pasan = [o for o in de_fuente if es_relevante(o)]
+        print(f"  [{fuente}] trajo {len(de_fuente)} · pasan el filtro {len(pasan)}")
+        for o in [o for o in de_fuente if not es_relevante(o)][:6]:
+            print(f"      descartado: {o['titulo'][:70]} | {o.get('lugar') or 'sin lugar'}")
     datos = actualizar_datos(relevantes)
     generar_pagina(datos, avisos)
     print(f"Página generada con {len(datos)} ofertas.")
